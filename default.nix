@@ -1,10 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports =
-    [
-      <nixos-hardware/raspberry-pi/4>
-    ];
+  imports = [ <nixos-hardware/raspberry-pi/4> ];
   hardware = {
     raspberry-pi."4".apply-overlays-dtmerge.enable = true;
     deviceTree = {
@@ -13,8 +10,5 @@
     };
   };
   console.enable = false;
-  environment.systemPackages = with pkgs; [
-    libraspberrypi
-    raspberrypi-eeprom
-  ];
+  environment.systemPackages = with pkgs; [ libraspberrypi raspberrypi-eeprom ];
 }
