@@ -16,9 +16,10 @@
   # Create gpio group
   users.groups.gpio = { };
 
+  # Change permissions gpio devices
   services.udev.extraRules = ''
-    SUBSYSTEM=="gpio", GROUP="gpio", MODE="0660"
-    SUBSYSTEM=="gpio*", PROGRAM="${pkgs.bash}/bin/bash -c 'chown -R root:gpio /sys/class/gpio && chmod -R 770 /sys/class/gpio'"
+    SUBSYSTEM=="gpio", ACTION=="add", GROUP="gpio", MODE="0660"
+    SUBSYSTEM=="gpio*", ACTION=="add", GROUP="gpio", MODE="0660"
   '';
 
 }
