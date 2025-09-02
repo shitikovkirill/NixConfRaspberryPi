@@ -20,6 +20,7 @@
   services.udev.extraRules = ''
     SUBSYSTEM=="gpio", ACTION=="add", GROUP="gpio", MODE="0660"
     SUBSYSTEM=="gpio*", ACTION=="add", GROUP="gpio", MODE="0660"
+    SUBSYSTEM=="gpio", KERNEL=="gpiochip*", GROUP="gpio", MODE="0660"
   '';
 
 }
